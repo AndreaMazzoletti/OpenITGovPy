@@ -1,6 +1,6 @@
-# Download Italian government open data
+# OpenITGovPy
 
-A simple Python program to dowload open data with a keyword from the government <a href="https://www.dati.gov.it/api"> open apis </a>.
+A simple Python program to dowload open data from a keyword from the government <a href="https://www.dati.gov.it/api"> open apis </a>.
 
 WARNING: If you don't select a keyword to limit the research the program will dowload A LOT of data (the entire dataset actually) so be sure to set a keyword as explained further in this document.
 
