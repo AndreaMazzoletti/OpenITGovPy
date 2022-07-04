@@ -31,11 +31,11 @@ def get_id_dowload_links(ids):
         response = requests.get("https://www.dati.gov.it/opendata/api/3/action/package_show?id=" + _id)
         converted_object = convert_bytes_to_json(response.content)
         try:
-            # TODO: save as file.format
-            ids_infos.append({
-                "download_link": converted_object["result"]["url"],
-                "name": converted_object["result"]["name"] + "-" +  converted_object["result"]["id"] 
-            })
+            for resource in converted_object["result"]["resources"]:
+                ids_infos.append({
+                    "download_link": resource["access_url"],
+                    "name": converted_object["result"]["name"] + "." +  resource["format"]
+                })
         except KeyError:
             print("Error while downloading " + converted_object["result"]["url"])
     return ids_infos
@@ -55,7 +55,7 @@ def dowload_data_to_disk(download_links):
             response = requests.get(download_link["download_link"], stream=True)
             if response.ok:
                 print("Downloading " + download_link["name"] + " to " + data_dir, os.path.abspath(data_dir) + "...")
-                with open(data_dir + "/" + download_link["name"], 'wb') as f:
+                with open(data_dir + "/" + download_link["name"] + "." + download_link["name"] , 'wb') as f:
                     for chunk in response.iter_content(chunk_size=1024 * 8):
                         if chunk:
                             f.write(chunk)
