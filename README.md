@@ -1,6 +1,6 @@
 # Download Italian government open data
 
-A simple NodeJS program to dowload open data with a keyword from the government <a href="https://www.dati.gov.it/api"> open apis </a>.
+A simple Python program to dowload open data with a keyword from the government <a href="https://www.dati.gov.it/api"> open apis </a>.
 
 WARNING: If you don't select a keyword to limit the research the program will dowload A LOT of data (the entire dataset actually) so be sure to set a keyword as explained further in this document.
 
@@ -13,21 +13,12 @@ You can limit the research by adding a keyword that represents what you want to 
 
 When the program is started it will require you to enter the keyword to search and then press ENTER, you can leave the input field blank to download all the data but it may not work because it is currently not supported, use at your own risk.
 
-## Installation
-
-Install <a href="https://nodejs.org/en/"> NodeJS</a> on your machine.
-Clone this repository and go inside the downloaded folder, then install the dependencies:
-
-```
-npm i 
-
-```
 ## Usage
 
 To start the program type this in your favourite terminal while you are in the project location
 
 ```
-node index.js
+python3 main.py
 
 ```
 
